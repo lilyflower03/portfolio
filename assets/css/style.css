@@ -312,8 +312,7 @@ li{
         height: 100vh;
         padding: 20px;
         text-align: center;
-
-        background-image: url("https://raw.githubusercontent.com/lilyflower03/portfolio/main/assets/images/top-image-iphone3.png");
+        background-image: url("../images/top-image-iphone3.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
