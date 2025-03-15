@@ -314,7 +314,7 @@ li{
         text-align: center;
 
         
-        background-image: url('https://github.com/lilyflower03/portfolio/blob/main/assets/images/top-image-iphone3.png');
+        background-image: url('/assets/images/top-image-iphone3.png');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
