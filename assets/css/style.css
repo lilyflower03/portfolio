@@ -1,0 +1,698 @@
+@charset "utf-8";
+body{
+    font-family: "Noto Sans JP","Kosugi Maru", "sans-serif","Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    height:100%;
+    margin:0;
+    padding:0;
+}
+
+/* スムーズスクロールを有効化 */
+html {
+    scroll-behavior: smooth;
+}
+/*トップロゴの下線消す*/
+.scroll-to-top {
+    text-decoration: none; 
+    color: inherit;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/*ロゴのクリックやホバー時に色が変わらないようにする */
+.scroll-to-top:visited,
+.scroll-to-top:hover,
+.scroll-to-top:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+
+
+/* ヘッダー */
+.header {
+    width: 100%; 
+    max-width: 1300px; 
+    position: fixed; 
+    top: 15px; 
+    left: 50%; 
+    transform: translateX(-50%);
+    background-color: #c8e8e9; 
+    color: white; 
+    height: 80px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px; 
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: "Poetsen One", sans-serif;
+    z-index: 1000; 
+}
+
+/*メニューアイコン*/
+.header-menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    z-index: 1001; 
+}
+
+/* ヘッダー内のロゴ */
+.header-logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* ヘッダーのリスト */
+.header-list {
+    display: flex;
+}
+
+/* ヘッダーリストのスタイル */
+.header-list ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+/* メニューの項目 */
+.header-list ul li {
+    display: inline-block;
+}
+
+/* ボタンのデザイン */
+.header-list ul li a {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center; 
+}
+
+/* 下線の初期状態（隠れている） */
+.header-list ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+/* ホバー時に下線が左右から出現 */
+.header-list ul li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* クリック時のアニメーション */
+.header-list ul li a:active::after {
+    background-color: #A7C7E7; 
+}
+
+/* スマホ用のメニュー表示設定 */
+@media (max-width: 768px) {
+    .header {
+        width: 100vw;  
+        max-width: 100%; 
+        left: 0;  
+        transform: none;  
+        height: 60px; 
+        padding: 0 20px; 
+        border-radius: 0; 
+    }
+
+    .header-menu-icon {
+        display: block; 
+    }
+
+    /* メニューを最初は非表示 */
+    .header-list {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: #c8e8e9;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 10px 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 20px 20px;
+    }
+
+    .header-list ul {
+        width: 100%; 
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header-list ul li {
+        width: 100%;
+    }
+
+    .header-list ul li a {
+        display: block;
+        width: 100%;
+        padding: 12px 0;
+        font-size: 18px;
+    }
+
+    /* メニュー開閉アニメーション */
+    .header-list.show {
+        display: flex;
+        position: absolute; 
+        top: 60px; 
+        left: 0;
+        width: 100%;
+        background-color: #c8e8e9;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+}
+
+
+/*メイン*/
+.main{
+    background-color:#fcf3fc;
+    min-height: 100vh;
+    padding-bottom: 80px;
+}
+
+/*section*/
+.section{
+    padding:20px 15px;
+    scroll-margin-top: 100px; 
+}
+.section.section-secounday{
+    background-color:fcf3fc;
+}
+
+.section-headline {
+    margin: 30px 0px 40px 30px;
+    font-size: 40px;
+    color: #fff;
+    background-color: #A7C7E7;
+    filter: drop-shadow(10px 10px 5px #7390b4);
+    border-radius: 30px; 
+    
+    width: 250px; 
+    height: 80px; 
+    
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+}
+
+/*トップページ*/
+.top {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.top-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+}
+
+.top-text {
+    font-size: 150px;
+    font-weight: bold;
+    font-family: "Bowlby One SC", sans-serif;
+    color: white; 
+    -webkit-text-stroke-width: 4px;
+    -webkit-text-stroke-color: #b66b6b;
+    text-shadow: 10px 0px 5px rgba(182, 107, 107, 0.8), 
+                 25px 0px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: -30px;
+}
+
+.top-subtext-name {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #b66b6b;
+    margin-top: -10px; 
+    margin-bottom: 0px;
+   
+}
+.top-subtext-job {
+    font-size: 35px; 
+    font-weight: bold;
+    color: #8d8888; 
+    margin-top: 0px; 
+    margin-bottom: 0px; 
+    font-family: "Kanit", sans-serif;
+    font-weight: 600;
+    font-style: bold;
+}
+
+.top-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.contact-links {
+    margin-top: 25px; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    gap: 15px;
+    width: 100%; 
+}
+
+.contact-icon img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.contact-icon:hover img {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+/* スマホ対応 */
+@media screen and (max-width: 768px) {
+    .top {
+        flex-direction: column;
+        height: 100vh;
+        padding: 20px;
+        text-align: center;
+
+        
+        background-image: url('/Users/miyamoto/Desktop/Portfolio/assets/images/top-image-iphone3.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: transparent; 
+    }
+
+    .top-image {
+        display: none; 
+    }
+
+    .top-text {
+        font-size: 50px; 
+        -webkit-text-stroke-width: 2px;
+        text-shadow: 5px 0px 3px rgba(182, 107, 107, 0.8),
+                     15px 0px 3px rgba(0, 0, 0, 0.3);
+        margin-bottom: -5px;
+    }
+
+    .top-subtext-job {
+        font-size: 25px;
+    }
+
+    .top-subtext-name {
+        font-size: 30px;
+    }
+
+    .contact-links {
+        flex-wrap: wrap; 
+        gap: 10px;
+    }
+
+    .contact-icon img {
+        width: 35px; 
+        height: 35px;
+    }
+
+    /* 画像を背景として適用するため、.top-image を非表示 */
+    .top-image {
+        display: none;
+    }
+}
+
+
+/* 自己紹介 */
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.about-image {
+    width: 180px;
+    height: auto;
+    margin-left: 50px;
+    border-radius: 50%;
+}
+
+/* テキスト部分 */
+.about-caption {
+    padding-left: 15px;
+    max-width: 500px;
+}
+
+.about-headline {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.about-description {
+    font-size: 16px;
+    margin: 0 50px;
+    line-height: 1.6;
+}
+
+/* スマホ対応 */
+@media screen and (max-width: 768px) {
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image {
+        width: 120px;
+        margin: 0 auto 20px;
+    }
+
+    .about-caption {
+        padding-left: 0;
+        max-width: 100%;
+    }
+
+    .about-headline {
+        font-size: 24px;
+    }
+
+    .about-description {
+        font-size: 14px;
+        margin: 0 20px;
+    }
+}
+
+/*スキル*/
+.grid{
+    display:flex;
+    margin:0;
+    padding:0;
+    align-items:center;
+    justify-content: center;
+}
+.grid-item{
+    list-style:none;
+}
+.grid-col-4{
+    width: 50%
+}
+.skill{
+    text-align:center;
+    padding: 0 15px;
+}
+.skill-headline{
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-family:"Kosugi Maru", sans-serif;
+}
+.skill-image{
+    width: 100px !important;
+    height: 100px !important;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto; 
+    margin-bottom: 20px;
+}
+.skill-description{
+    text-align: center;
+    margin:0;
+    font-size: 13px;
+}
+/* スマホ用対応 */
+@media screen and (max-width: 768px) {
+    .grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .grid-item {
+        width: 80%; /* スマホでは1列か2列 */
+    }
+
+    .skill-headline {
+        font-size: 20px; 
+    }
+
+    .skill-image img {
+        width: 80px;
+        height: 80px; 
+    }
+
+    .skill-description {
+        font-size: 12px;
+    }
+}
+
+/* 経歴 */
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px 0;
+}
+
+/* タイムラインの中央線 */
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #ccc;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+
+
+.timeline-item {
+    padding: 20px;
+    position: relative;
+    width: 50%;
+}
+
+.timeline-item .content {
+    background: white;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 左右のアイテム配置 */
+.timeline-item.left {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item.right {
+    left: 50%;
+    text-align: left;
+}
+
+/* 丸のデザイン */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border: 3px solid #007bff;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item.left::before {
+    right: -7px;
+}
+
+.timeline-item.right::before {
+    left: -7px;
+}
+
+/* スマホ対応 */
+@media screen and (max-width: 768px) {
+    .timeline-container {
+        max-width: 100%;
+        padding: 10px 0;
+    }
+
+    /* 中央線を左寄せ */
+    .timeline-container::after {
+        left: 20px;
+    }
+
+    /* 1カラムレイアウト */
+    .timeline-item {
+        width: 100%;
+        left: 0;
+        text-align: left;
+        padding-left: 40px;
+        padding-right: 20px;
+    }
+
+    .timeline-item.right {
+        left: 0;
+    }
+
+    /* 丸の位置を調整 */
+    .timeline-item.left::before,
+    .timeline-item.right::before {
+        left: 14px; 
+        right: auto;
+    }
+    
+    .timeline-item .content h3,
+    .timeline-item .content h4,
+    .timeline-item .content p {
+        text-align: left;  
+        margin-left: 0;    
+        padding-left: 0;  
+        display: block;   
+    }
+
+    /* h3とh4 のマージンを調整 */
+    .timeline-item .content h3 {
+        margin-bottom: 5px;  
+    }
+
+    .timeline-item .content h4 {
+        margin-bottom: 8px;  
+    }
+}
+
+
+
+/* フッター */
+.footer {
+    background: #7390b4; 
+    color: #fff; 
+    text-align: center; 
+    padding: 10px 0; 
+    width: 100%;
+}
+
+/* フッター内のレイアウト */
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; 
+}
+
+/* CONTACT */
+.footer-title {
+    font-size: 80px; 
+    font-weight: bold;
+    font-family: "Poetsen One", sans-serif;
+    margin: 0;
+}
+
+.footer-message {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-top: 0;
+    opacity: 0.9;
+}
+
+/* メールアドレス */
+.footer-email {
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-email:hover {
+    color: #dfe6f0; /* ホバー時に色を少し変える */
+}
+
+/* Linkedin アイコン */
+.footer-contact-icon img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* アイコンのホバーエフェクト */
+.footer-contact-icon:hover img {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+/* コピーライト */
+.footer-text {
+    font-size: 14px;
+    opacity: 0.8;
+}
+@media screen and (max-width: 768px) {
+    .footer {
+        padding: 15px 0; 
+    }
+
+    .footer-title {
+        font-size: 40px; 
+    }
+
+    .footer-message {
+        font-size: 16px; 
+    }
+
+    .footer-email {
+        font-size: 16px; 
+    }
+
+    .footer-contact-icon img {
+        width: 30px; 
+        height: 30px;
+    }
+
+    .footer-text {
+        font-size: 12px; 
+    }
+}
+
+
+
+
+
+
+
+
+
+
