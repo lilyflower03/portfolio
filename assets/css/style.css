@@ -233,6 +233,11 @@ li{
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.3);
+    background-image: url('../images/top-image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent; 
 }
 
 
@@ -276,14 +281,6 @@ li{
     font-family: "Kanit", sans-serif;
     font-weight: 600;
     font-style: bold;
-}
-
-.top-image {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
 }
 
 .contact-links {
