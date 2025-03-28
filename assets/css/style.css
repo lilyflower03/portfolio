@@ -233,7 +233,7 @@ li{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../images/top-image.png"); /* PC用背景画像 */
+    background-image: url("assets/images/top-image.png"); /* PC用背景画像 */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
