@@ -225,6 +225,7 @@ li{
 }
 
 /*トップページ*/
+
 .top {
     width: 100vw;
     height: 100vh;
@@ -232,7 +233,10 @@ li{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-image: url("../images/top-image.png"); /* PC用背景画像 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 
